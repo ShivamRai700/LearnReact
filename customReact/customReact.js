@@ -1,0 +1,54 @@
+// function customRender(reactElement,container){
+//   const domElement = document.createElement(reactElement.type);
+//   domElement.innerHTML = reactElement.children;
+//   domElement.setAttribute('href',reactElement.props.href)
+//   domElement.setAttribute('target',reactElement.props.target);
+
+//   container.appendChild(domElement);
+// }
+
+// /* The below react element is made by react , under the hood, but we are making it here ,on custom basis, so whoever has to use our library will have to make the element is the same format as below */
+
+// const reactElement = {
+//   type : 'a',
+//   props : {
+//     href : 'https://google.com',
+//     target : '_blank'
+//   },
+//   children : 'Click me to visite google'
+// }
+
+// const mainContainer = document.querySelector('#root')
+
+// // ek method chahiye jo render kar de : element ko root me add kar de 
+
+// customRender(reactElement,mainContainer);
+
+// Better Method
+
+function customRender(reactElement, container) {
+  const domElement = document.createElement(reactElement.type);
+  domElement.innerHTML = reactElement.children;
+  for (const prop in reactElement.props) {
+    if (prop === 'children') continue;
+    domElement.setAttribute(prop, reactElement.props[prop]);
+  }
+  container.appendChild(domElement);
+}
+
+/* The below react element is made by react , under the hood, but we are making it here ,on custom basis, so whoever has to use our library will have to make the element is the same format as below */
+
+const reactElement = {
+  type: 'a',
+  props: {
+    href: 'https://google.com',
+    target: '_blank'
+  },
+  children: 'Click me to visite google'
+}
+
+const mainContainer = document.querySelector('#root')
+
+// ek method chahiye jo render kar de : element ko root me add kar de 
+
+customRender(reactElement, mainContainer);
