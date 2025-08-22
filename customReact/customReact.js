@@ -36,7 +36,7 @@ function customRender(reactElement, container) {
   container.appendChild(domElement);
 }
 
-/* The below react element is made by react , under the hood, but we are making it here ,on custom basis, so whoever has to use our library will have to make the element is the same format as below */
+/* The below react element is made by react , under the hood, but we are making it here ,on custom basis, so whoever has to use our library, will have to make the element in the same format as below */
 
 const reactElement = {
   type: 'a',
